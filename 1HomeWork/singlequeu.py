@@ -8,22 +8,22 @@ class SingleQueue:
     def __init__(self):
         self.head = None
         self.tail = None
-        self.length = 0
+        self.len = 0
 
     def enqueue(self, value):
         element = Node(value)
         element.next = self.head
         self.head = element
-        if self.length == 0:
+        if self.len == 0:
             self.tail = self.head
-        self.length += 1
+        self.len += 1
 
     def dequeue(self):
         if self.length == 0:
             return None
         prev = self.head
         current = prev.next
-        self.length -= 1
+        self.len -= 1
         if current is None:
             self.head = None
             self.tail = None
@@ -39,4 +39,4 @@ class SingleQueue:
         return self.tail.value
 
     def length(self):
-        return self.length
+        return self.len

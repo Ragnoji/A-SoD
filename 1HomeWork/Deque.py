@@ -9,7 +9,7 @@ class Deque:
     def __init__(self):
         self.head = None
         self.tail = None
-        self.length = 0
+        self.len = 0
 
     def pushleft(self, value):
         element = Node(value)
@@ -19,7 +19,7 @@ class Deque:
         self.head = element
         if self.length == 0:
             self.tail = element
-        self.length += 1
+        self.len += 1
 
     def pushright(self, value):
         element = Node(value)
@@ -27,15 +27,15 @@ class Deque:
         if self.tail is not None:
             self.tail.next = element
         self.tail = element
-        if self.length == 0:
+        if self.len == 0:
             self.head = element
-        self.length += 1
+        self.len += 1
 
     def popleft(self):
         if self.head is None:
             return None
         element = self.head
-        self.length -= 1
+        self.len -= 1
         if element.next is None:
             self.head = None
             self.tail = None
@@ -48,7 +48,7 @@ class Deque:
         if self.tail is None:
             return None
         element = self.tail
-        self.length -= 1
+        self.len -= 1
         if element.previous is None:
             self.head = None
             self.tail = None
@@ -57,5 +57,5 @@ class Deque:
         self.tail = element.previous
         return element
 
-    def get_length(self):
-        return self.length
+    def length(self):
+        return self.len
