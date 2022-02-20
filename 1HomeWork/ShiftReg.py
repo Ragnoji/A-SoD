@@ -56,9 +56,6 @@ class Deque:
             yield current.value
             current = current.next
 
-    def getlength(self):
-        return self.length
-
-    def get_length(self):
+    def length(self):
         return self.length
 
