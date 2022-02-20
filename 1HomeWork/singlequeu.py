@@ -21,19 +21,19 @@ class SingleQueue:
     def dequeue(self):
         if self.len == 0:
             return None
-        prev = self.head
-        current = prev.next
-        self.len -= 1
-        if current is None:
+        if self.len == 1:
+            element = self.head
             self.head = None
             self.tail = None
-            return prev
-        while current.next is not None:
-            prev = prev.next
+            return element
+        self.len -= 1
+        current = self.head
+        while current.next.next is not None:
             current = current.next
-        prev.next = None
-        self.tail = prev
-        return current
+        element = current.next
+        current.next = None
+        self.tail = current
+        return element
 
     def check(self):
         return self.tail.value
