@@ -19,7 +19,7 @@ class SingleQueue:
         self.len += 1
 
     def dequeue(self):
-        if self.length == 0:
+        if self.len == 0:
             return None
         prev = self.head
         current = prev.next

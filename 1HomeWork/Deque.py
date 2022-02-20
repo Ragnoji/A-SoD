@@ -17,7 +17,7 @@ class Deque:
         if self.head is not None:
             self.head.previous = element
         self.head = element
-        if self.length == 0:
+        if self.len == 0:
             self.tail = element
         self.len += 1
 

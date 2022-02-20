@@ -8,11 +8,11 @@ class Node:
 class Deque:
     def __init__(self):
         self.head = None
-        self.length = 0
+        self.len = 0
 
     def push(self, value):
         element = Node(value)
-        self.length += 1
+        self.len += 1
         if self.head is None:
             element.previous = element
             element.next = element
@@ -27,9 +27,9 @@ class Deque:
     def pop(self):
         if self.head is None:
             return None
-        self.length -= 1
+        self.len -= 1
         element = self.head
-        if self.length == 0:
+        if self.len == 0:
             element.previous = None
             element.next = None
             self.head = None
@@ -43,19 +43,19 @@ class Deque:
         return element
 
     def shiftleft(self):
-        if self.length != 0:
+        if self.len != 0:
             self.head = self.head.next
 
     def shiftright(self):
-        if self.length != 0:
+        if self.len != 0:
             self.head = self.head.previous
 
     def repr(self):
         current = self.head
-        for _ in range(self.length):
+        for _ in range(self.len):
             yield current.value
             current = current.next
 
     def length(self):
-        return self.length
+        return self.len
 
